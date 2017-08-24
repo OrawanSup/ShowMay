@@ -12,6 +12,8 @@
 
     <!--Content-->
     <LinearLayout
+        android:background="#50000000"
+        android:padding="15dp"
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,7 +59,7 @@
 
         <!--Password-->
         <EditText
-            android:ndroid:textColorHint="@color/colorPrimaryLight"
+            android:textColorHint="@color/colorPrimaryLight"
             android:textColor="@color/colorPrimaryDark"
             android:inputType="text"
             android:hint="Password :"
@@ -66,7 +68,7 @@
 
         <!--Re Password-->
         <EditText
-            android:ndroid:textColorHint="@color/colorPrimaryLight"
+            android:textColorHint="@color/colorPrimaryLight"
             android:textColor="@color/colorPrimaryDark"
             android:inputType="text"
             android:hint="Re Password :"
@@ -77,7 +79,10 @@
 
     <!--Button-->
     <Button
-        android:layout_alignBottom=""
+        android:textColor="#ffffff"
+        android:background="@color/colorPrimaryLight"
+        android:text="sign up"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </RelativeLayout>
