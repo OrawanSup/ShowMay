@@ -69,11 +69,14 @@ public class SignUpFragment extends Fragment{
                         userString.equals("") ||
                         passwordString.equals("") ||
                         rePasswordString.equals("")) {
-
                     // Have Space
                     MyAlert myAlert = new MyAlert(getActivity());
                     myAlert.myDialog(getString(R.string.title_have_space),
                             getString(R.string.message_have_space));
+                } else if (!passwordString.equals(rePasswordString)) {
+                    //Password Not Math
+                    MyAlert myAlert = new MyAlert(getActivity());
+                    myAlert.myDialog("Password Not Math", "Please Fill Same Password");
                 }
 
 
