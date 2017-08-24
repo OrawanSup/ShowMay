@@ -34,20 +34,24 @@
 
         <!--Gender-->
         <RadioGroup
-            android:orientation="horizontal"
+            android:id="@+id/ragGender"
             android:layout_width="@dimen/content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <RadioButton
-                android:textColor="@color/white"
+                android:id="@+id/ragMale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Male"/>
+                android:text="Male"
+                android:textColor="@color/white" />
+
             <RadioButton
-                android:textColor="@color/white"
+                android:id="@+id/ragFemale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Female"/>
+                android:text="Female"
+                android:textColor="@color/white" />
 
         </RadioGroup>
 
