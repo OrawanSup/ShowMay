@@ -24,6 +24,7 @@
 
         <!--Name-->
         <EditText
+            android:id="@+id/edtName"
             android:textColorHint="@color/colorPrimaryLight"
             android:textColor="@color/colorPrimaryDark"
             android:inputType="text"
@@ -52,6 +53,7 @@
 
         <!--User-->
         <EditText
+            android:id="@+id/edtUser"
             android:textColorHint="@color/colorPrimaryLight"
             android:textColor="@color/colorPrimaryDark"
             android:inputType="text"
@@ -61,6 +63,7 @@
 
         <!--Password-->
         <EditText
+            android:id="@+id/edtPassword"
             android:textColorHint="@color/colorPrimaryLight"
             android:textColor="@color/colorPrimaryDark"
             android:inputType="text"
@@ -70,6 +73,7 @@
 
         <!--Re Password-->
         <EditText
+            android:id="@+id/edtRePassword"
             android:textColorHint="@color/colorPrimaryLight"
             android:textColor="@color/colorPrimaryDark"
             android:inputType="text"
@@ -81,8 +85,10 @@
 
     <!--Button-->
     <Button
+
+        android:id="@+id/btnSignUp"
         android:textColor="#ffffff"
-        android:background="@color/colorPrimaryLight"
+        android:background="@color/colorPrimary"
         android:text="sign up"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
