@@ -88,6 +88,8 @@ public class MainFragment extends Fragment{
         String[] userStrings = new String[columnStrings.length];
         boolean b = true; // True ==> User False
 
+        Log.d(tag, "Password Fill ==> " + passwordString);
+
         try {
 
             GetAllData getAllData = new GetAllData(getActivity());
@@ -101,7 +103,7 @@ public class MainFragment extends Fragment{
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 if (userString.equals(jsonObject.getString(columnStrings[2]))) {
                     b = false;
-                    for (int i1=0; i<columnStrings.length; i1+=1) {
+                    for (int i1=0; i1<columnStrings.length; i1+=1) {
                         userStrings [i1] = jsonObject.getString(columnStrings[i1]);
                         Log.d(tag, "userStrings[" + i1 + "] ==>" + userStrings[i1]);
                     }   //for
@@ -115,14 +117,14 @@ public class MainFragment extends Fragment{
                 myAlert.myDialog("User False", "Please Try Again User False");
             } else if (passwordString.equals(userStrings[3])) {
                 // Password True
-//                Toast.makeText(getActivity(), "Welcome" + userStrings[1],
-//                    Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Welcome" + userStrings[1],
+                    Toast.LENGTH_SHORT).show();
 
                 //Intent to Service
-//                Intent intent = new Intent(getActivity(), ServiceActivity.class);
-//                intent.putExtra("User", userStrings);
-//                getActivity().startActivity(intent);
-//                getActivity().finish();
+                Intent intent = new Intent(getActivity(), ServiceActivity.class);
+                intent.putExtra("User", userStrings);
+                getActivity().startActivity(intent);
+                getActivity().finish();
 
             } else {
                 // Password False
@@ -132,7 +134,7 @@ public class MainFragment extends Fragment{
             }
 
         } catch (Exception e) {
-            Log.d(tag, "e checkUser ==> " + toString());
+            Log.d(tag, "e checkUser ==> " + e.toString());
         }
 
 
