@@ -1,5 +1,6 @@
 package khumpong.orawan.showmay.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import khumpong.orawan.showmay.R;
+import khumpong.orawan.showmay.ServiceActivity;
 import khumpong.orawan.showmay.manager.GetAllData;
 import khumpong.orawan.showmay.manager.MyAlert;
 
@@ -60,7 +62,7 @@ public class MainFragment extends Fragment{
 
                 // Get Value From EditText
                 userString = userEditText.getText().toString().trim();
-                passwordString = userEditText.getText().toString().trim();
+                passwordString = passeordEditText.getText().toString().trim();
 
                 //Check Space
                 if (userString.equals("") || passwordString.equals("")) {
@@ -113,8 +115,14 @@ public class MainFragment extends Fragment{
                 myAlert.myDialog("User False", "Please Try Again User False");
             } else if (passwordString.equals(userStrings[3])) {
                 // Password True
-                Toast.makeText(getActivity(), "Welcome" + userStrings[1],
-                    Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), "Welcome" + userStrings[1],
+//                    Toast.LENGTH_SHORT).show();
+
+                //Intent to Service
+//                Intent intent = new Intent(getActivity(), ServiceActivity.class);
+//                intent.putExtra("User", userStrings);
+//                getActivity().startActivity(intent);
+//                getActivity().finish();
 
             } else {
                 // Password False
