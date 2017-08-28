@@ -12,8 +12,9 @@ import com.squareup.picasso.Picasso;
 
 import khumpong.orawan.showmay.R;
 
+
 /**
- * Created by May on 28/8/2560.
+ * Created by masterung on 8/28/2017 AD.
  */
 
 public class EbookAdapter extends BaseAdapter{
@@ -52,7 +53,7 @@ public class EbookAdapter extends BaseAdapter{
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view1 = layoutInflater.inflate(R.layout.listview_ebook_layout, viewGroup, false);
 
-        // Show Text
+        //Show Text
         TextView titleTextView = view1.findViewById(R.id.txtTitle);
         TextView detailTextView = view1.findViewById(R.id.txtDetail);
         titleTextView.setText(titleStrings[i]);
@@ -62,8 +63,6 @@ public class EbookAdapter extends BaseAdapter{
         ImageView imageView = view1.findViewById(R.id.imvIcon);
         Picasso.with(context).load(iconStrings[i]).into(imageView);
 
-
         return view1;
     }
-
 }   // Main Class

@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!--Title -->
+        <!--Title-->
         <TextView
             android:id="@+id/txtTitle"
             android:textColor="@color/colorPrimaryDark"
