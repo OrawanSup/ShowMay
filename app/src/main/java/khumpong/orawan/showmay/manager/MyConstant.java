@@ -6,7 +6,7 @@ package khumpong.orawan.showmay.manager;
 
 public class MyConstant {
 
-    private String urlEbookString = "http://android";
+    private String urlEbookString = "http://androidthai.in.th/Tun/getAllEbookMaster.php";
 
     public String getUrlEbookString() {
         return urlEbookString;
