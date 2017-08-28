@@ -1,5 +1,6 @@
 package khumpong.orawan.showmay;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
@@ -8,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import khumpong.orawan.showmay.fragment.ReadEbookFragment;
 
@@ -36,7 +39,26 @@ public class ServiceActivity extends AppCompatActivity {
                     .commit();
         }
 
+        //ReadEbook Controller
+        readEbookController();
+
+        //Show My Location
+        TextView textView = (TextView) findViewById(R.id.txtShowLocationDrawer);
+
+
     }   // onCreate
+
+    private void readEbookController() {
+        TextView textView = (TextView) findViewById(R.id.txtShowLocationDrawer);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ServiceActivity.this, MapsActivity.class);
+                startActivity(intent);
+                drawerLayout.closeDrawers();
+            }
+        });
+    }
 
     private void initialView() {
 
