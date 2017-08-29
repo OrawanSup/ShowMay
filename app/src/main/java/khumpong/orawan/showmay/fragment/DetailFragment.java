@@ -10,20 +10,27 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.github.barteksc.pdfviewer.PDFView;
+import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
+import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
+import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
+
 import khumpong.orawan.showmay.R;
+import khumpong.orawan.showmay.manager.MyConstant;
 
 /**
  * Created by May on 28/8/2560.
  */
 
-public class DetailFragment extends Fragment{
+public class DetailFragment extends Fragment implements OnPageChangeListener, OnLoadCompleteListener {
 
-    private String urlPDFString;
 
-    public static DetailFragment detailInstance(String strURLpdf) {
+    private int myIndex;
+
+    public static DetailFragment detailInstance(int index) {
         DetailFragment detailFragment = new DetailFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("PDF", strURLpdf);
+        bundle.putInt("Index", index);
         detailFragment.setArguments(bundle);
         return detailFragment;
 
@@ -44,8 +51,8 @@ public class DetailFragment extends Fragment{
         super.onCreate(savedInstanceState);
 
         // Read from Argument
-        urlPDFString = getArguments().getString("PDF");
-        Log.d("28AugV2", "urlPDF ==>" + urlPDFString);
+        myIndex = getArguments().getInt("Index", 0);
+        Log.d("28AugV2", "myIndex ==>" + myIndex);
 
     }   //onCreate
 
@@ -53,18 +60,29 @@ public class DetailFragment extends Fragment{
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        //Create WebView
-        createWebView();
+        // Show PDF
+        MyConstant myConstant = new MyConstant();
+        String[] titlePDFStrings = myConstant.getTitlePDFStrings();
 
-
+        PDFView pdfView = getView().findViewById(R.id.myPDFViewer);
+        pdfView.fromAsset(titlePDFStrings[myIndex])
+                .defaultPage(0)
+                .enableSwipe(true)
+                .swipeHorizontal(false)
+                .onPageChange(this)
+                .onLoad(this)
+                .scrollHandle(new DefaultScrollHandle(getActivity()))
+                .load();
     }   // onActivityCreate
 
-    private void createWebView() {
-        WebView webView = getView().findViewById(R.id.detailWebView);
-        WebViewClient webViewClient = new WebViewClient();
-        webView.setWebViewClient(webViewClient);
-        webView.loadUrl(urlPDFString);
-        webView.getSettings().setJavaScriptEnabled(true);
+
+    @Override
+    public void onPageChanged(int page, int pageCount) {
+
+    }
+
+    @Override
+    public void loadComplete(int nbPages) {
 
     }
 }   // Main Class
